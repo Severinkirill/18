@@ -1,5 +1,7 @@
+import jQuery from "jquery";
+
 $(function() {
-	// Завантаження завдань з localStorage
+
 	function loadTodos() {
 		const saved = localStorage.getItem('todos18');
 		return saved ? JSON.parse(saved) : [];
@@ -51,7 +53,7 @@ $(function() {
 		});
 	}
 
-	// Додавання завдання
+
 	$('#todoForm').on('submit', function(e) {
 		e.preventDefault();
 		const value = $('#todoInput').val().trim();
@@ -63,7 +65,6 @@ $(function() {
 		}
 	});
 
-	// Показ модального вікна при кліку на текст завдання
 	$('#todoList').on('click', '.todo-text', function() {
 		const idx = $(this).parent().data('idx');
 		$('#modalTaskText').text(todos[idx].text);
